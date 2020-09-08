@@ -21,10 +21,17 @@ function sendSms(num) {
     .catch((err) => console.log(err));
 }
 
-cron.schedule("37 13 * * *", () => {
-  sendSms("+31629444605");
-  sendSms("+31648228243");
-});
+cron.schedule(
+  "37 13 * * *",
+  () => {
+    sendSms("+31629444605");
+    sendSms("+31648228243");
+  },
+  {
+    scheduled: true,
+    timezone: "Europe/Amsterdam",
+  }
+);
 
 cron.schedule("* * * * *", () => {
   console.log("Application is running. SMS will be send at 13:37.");
