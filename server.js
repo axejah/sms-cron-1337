@@ -26,6 +26,10 @@ cron.schedule("37 13 * * *", () => {
   sendSms("+31648228243");
 });
 
+cron.schedule("* * * * *", () => {
+  console.log("Application is running. SMS will be send at 13:37.");
+});
+
 app.listen(port, () => {
   console.log(`Server is running on PORT: ${port}`);
 });
